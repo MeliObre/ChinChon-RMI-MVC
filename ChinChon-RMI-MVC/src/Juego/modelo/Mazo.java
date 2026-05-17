@@ -1,5 +1,7 @@
 package Juego.modelo;
 
+import Juego.enumerados.Palo;
+
 import java.util.ArrayList;
 import java.util.Collections;
 

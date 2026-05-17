@@ -1,5 +1,6 @@
 package Juego.modelo;
 
+import Juego.enumerados.Evento;
 import Juego.interactuar.IJuego;
 import ar.edu.unlu.rmimvc.observer.ObservableRemoto;
 
