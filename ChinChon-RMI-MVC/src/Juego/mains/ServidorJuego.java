@@ -9,6 +9,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.rmi.RemoteException;
 import java.util.Enumeration;
+import Juego.modelo.Juego;
 
 public class ServidorJuego {
     public static void main(String[] args) {

@@ -1,10 +1,12 @@
 package Juego.interactuar;
 
 import java.rmi.RemoteException;
+
+import Juego.modelo.Carta;
+import Juego.modelo.Jugador;
+import Juego.modelo.Mano;
 import ar.edu.unlu.rmimvc.observer.IObservableRemoto;
-import java.rmi.Remote;
-import java.rmi.RemoteException;
-import juego.modelo.*;
+
 
 public interface IJuego extends IObservableRemoto{
     int conectarJugador (String nombre)throws RemoteException;

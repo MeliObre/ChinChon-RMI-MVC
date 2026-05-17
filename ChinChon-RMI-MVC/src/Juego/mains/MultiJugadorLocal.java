@@ -3,6 +3,7 @@ package Juego.mains;
 import Juego.controlador.Controlador;
 import Juego.vista.pseudoconsola.Pseudoconsola;
 import Juego.vista.vista2D.IVista;
+import Juego.modelo.Juego;
 
 
 import java.rmi.RemoteException;

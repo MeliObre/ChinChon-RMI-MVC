@@ -52,6 +52,7 @@ public class Juego extends ObservableRemoto implements IJuego {
 
         return jugadores.values().toArray(new Jugador[0]);
     }
+
     public void setListoParaJugar(int idJugador, boolean estaListo) throws RemoteException  {
         Jugador jugadorListo = this.getJugador(idJugador);
 
