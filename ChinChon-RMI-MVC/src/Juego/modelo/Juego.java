@@ -1,6 +1,10 @@
 package Juego.modelo;
 
+
+import Juego.enumerados.Evento;
+import Juego.enumerados.Palo;
 import Juego.interactuar.IJuego;
+import Juego.servicios.TopJugadores;
 import ar.edu.unlu.rmimvc.observer.ObservableRemoto;
 
 import java.rmi.RemoteException;
