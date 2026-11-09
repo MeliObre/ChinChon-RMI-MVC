@@ -137,5 +137,12 @@ public class Controlador implements IControladorRemoto {
         return this.modeloJuego.getJugadoresTopString();
     }
 
-
+    //Implementacion del modo rapido
+    public void activarModoRapido(boolean activar) {
+        try {
+            this.modeloJuego.setModoRapido(activar);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 }

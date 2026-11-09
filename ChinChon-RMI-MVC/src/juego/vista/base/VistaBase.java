@@ -26,8 +26,16 @@ public abstract class VistaBase extends JFrame implements IVista {
         this.controlador.setVista(this);
 
         this.vInicioSesion.onClickIniciar(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent arg0) {
+                // 1. Verificamos si tildó el checkbox de modo rápido antes de conectar
+                if (vInicioSesion.isModoRapidoSeleccionado()) {
+                    controlador.activarModoRapido(true);
+                }
+
+                // 2. Conectamos al jugador con el controlador
                 controlador.conectarJugador(vInicioSesion.getGetNombreUsuario());
+
                 try {
                     sesionIniciada();
                     vInicioSesion.setVisible(false);
@@ -36,6 +44,17 @@ public abstract class VistaBase extends JFrame implements IVista {
                 }
             }
         });
+        //this.vInicioSesion.onClickIniciar(new ActionListener() {
+          //  public void actionPerformed(ActionEvent arg0) {
+            //    controlador.conectarJugador(vInicioSesion.getGetNombreUsuario());
+              //  try {
+                //    sesionIniciada();
+                  //  vInicioSesion.setVisible(false);
+                //} catch (RemoteException e) {
+                  //  System.out.println("fallo al testear la conectividad");
+                //}
+            //}
+        //});
     }
 
     public final void iniciar() {

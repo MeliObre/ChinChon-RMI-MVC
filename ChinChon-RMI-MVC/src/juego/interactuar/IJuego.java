@@ -39,4 +39,7 @@ public interface IJuego extends IObservableRemoto{
     void testearConectividad() throws RemoteException;
 
     String getJugadoresTopString() throws RemoteException;
+
+    // Implementacion del modo rapido
+    void setModoRapido(boolean esModoRapido) throws RemoteException;
 }

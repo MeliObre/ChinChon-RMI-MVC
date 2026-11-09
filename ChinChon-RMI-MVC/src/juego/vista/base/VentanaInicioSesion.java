@@ -9,6 +9,7 @@ public class VentanaInicioSesion extends JFrame{
     private JPanel contentPane;
     private JTextField textUsuario;
     private JButton btnIniciar;
+    private JCheckBox chkModoRapido;
 
     public VentanaInicioSesion() {
         setTitle("Chinchón - Login");
@@ -38,6 +39,10 @@ public class VentanaInicioSesion extends JFrame{
 
         // Permite que al apretar "Enter" se dispare el botón
         SwingUtilities.getRootPane(btnIniciar).setDefaultButton(btnIniciar);
+
+        //Modo rapido
+        chkModoRapido = new JCheckBox("Modo Demo (25 pts / sin 8 y 9)");
+        contentPane.add(chkModoRapido);
     }
 
     // Este método lo usa VistaBase para conectar el botón con el Controlador
@@ -48,5 +53,9 @@ public class VentanaInicioSesion extends JFrame{
     // Este método lo usa VistaBase para obtener el String que escribió el usuario
     public String getGetNombreUsuario() {
         return this.textUsuario.getText().trim();
+    }
+
+    public boolean isModoRapidoSeleccionado() {
+        return this.chkModoRapido.isSelected();
     }
 }

@@ -10,6 +10,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public class Juego extends ObservableRemoto implements IJuego {
     private HashMap<Integer, Jugador> jugadores = new HashMap<>();
     private Ronda ronda;
@@ -17,6 +18,10 @@ public class Juego extends ObservableRemoto implements IJuego {
     private int contadorRonda = 0;
 
     private boolean incluir8y9 = true;
+
+    //Implementacion para el modo rapido
+    private boolean modoRapido = false;
+    private int limitePuntosPerder = 100; // Por defecto 100
 
     public Juego() throws RemoteException {
         super();
@@ -206,7 +211,7 @@ public class Juego extends ObservableRemoto implements IJuego {
         // Usamos una lista temporal para evitar modificar el mapa 'jugadores' mientras iteramos
         ArrayList<Jugador> jugadoresEliminados = new ArrayList<>();
         for (Jugador jugador : this.jugadores.values()) {
-            if (jugador.getPuntos() >= 100) {
+            if (jugador.getPuntos() >= this.limitePuntosPerder) {
                 jugadoresEliminados.add(jugador);
             }
             // Reiniciar estado para la nueva ronda
@@ -250,6 +255,18 @@ public class Juego extends ObservableRemoto implements IJuego {
     @Override
     public String getJugadoresTopString() throws RemoteException  {
         return TopJugadores.getInstancia().getJugadoresTopString();
+    }
+
+    @Override
+    public void setModoRapido(boolean esModoRapido) throws RemoteException {
+        this.modoRapido = esModoRapido;
+        if (this.modoRapido) {
+            this.limitePuntosPerder = 25; // En modo rápido se pierde a los 25 puntos
+            this.incluir8y9 = false;       // Opcional: mazo corto de 40 cartas para más combinaciones rápidas
+        } else {
+            this.limitePuntosPerder = 100;
+            this.incluir8y9 = true;
+        }
     }
 
 }
