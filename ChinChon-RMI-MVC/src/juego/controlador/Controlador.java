@@ -70,12 +70,14 @@ public class Controlador implements IControladorRemoto {
                     if (ep.getDatoNumerico() == this.idJugador) {
                         vista.ganar();
                     }
+                    vista.mostrarPuntos();
                     break;
 
                 case PERDISTE:
                     if (ep.getDatoNumerico() == this.idJugador) {
                         vista.perder();
                     }
+                    vista.mostrarPuntos();
                     break;
             }
         }
